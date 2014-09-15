@@ -13,9 +13,21 @@ description 'Shows a funny answer to the user\'s query'
 name 'EasterEgger';
 code_url 'https://github.com/duckduckgo/zeroclickinfo-goodies/blob/master/lib/DDG/Goodie/EasterEgger.pm';
 category 'general';
-attribution github  => ['https://github.com/jfeeneywm/zeroclickinfo-goodies', 'jfeeneywm'],
+attribution github  => ['https://github.com/jfeeneywm/', 'jfeeneywm'],
             twitter => ['https://twitter.com/jfeeneywm', 'jfeeneywm'];
 
-my $statement = Load(scalar share('eggs.yml')->slurp);
+my $eggs = Load(scalar share('eggs.yml')->slurp);
 
+my @all_eggs = sort keys %$eggs;
 
+my $egg_triggers;
+
+foreach $egg(@all_eggs){
+    $egg_triggers .= join('|', keys %{$eggs->{$egg}->{'keys'}});
+}
+
+handle remainder=>sub {
+    return unless ($_ eq '' || $_ eq '?');
+}
+1;
+   
