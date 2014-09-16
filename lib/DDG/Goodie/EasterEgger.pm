@@ -17,17 +17,24 @@ attribution github  => ['https://github.com/jfeeneywm/', 'jfeeneywm'],
             twitter => ['https://twitter.com/jfeeneywm', 'jfeeneywm'];
 
 my $eggs = Load(scalar share('eggs.yml')->slurp);
-
-my @all_eggs = sort keys %$eggs;
-
 my $egg_triggers;
 
-foreach $egg(@all_eggs){
-    $egg_triggers .= join('|', keys %{$eggs->{$egg}->{'keys'}});
+foreach my $egg(keys %$all_eggs){
+    my $answer=$all_eggs->{$egg};
+    if(ref($answer->{aliases}) eq 'ARRAY'){
+        foreach my $alias(@{$answer->{aliases}}){
+            $egg->{$alias} = $answer;
+    }    
+    foreach my $key(keys %$answer){
+        delete $answer->{key} unless (grep { $key eq $_ };
+    }
 }
 
 handle remainder=>sub {
-    return unless ($_ eq '' || $_ eq '?');
+    my $answer=$egg_triggers->{$egg};
+    
+    return unless ($_ eq '' || $_ eq '?' && ($response));
+    return $answer->{response};
 }
 1;
    

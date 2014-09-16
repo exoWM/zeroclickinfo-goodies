@@ -2,10 +2,19 @@
 
 # Okay this is how this is going to start then.
 # I think I'm going to use something really similar to DDG's goodie. Where the format looks a little bit like this:
-keys:
-    aliases:
-        - alternate_key0
-        - alternate_key1
-    output: 'Output'
-'what is the ultimate answer to the ultimate question of life the universe and everything':
-    output: "Forty-two"
+
+#   aliases:
+#      - alternate_key0
+#       - alternate_key1
+#   output: 'Output'
+whatistheanswertotheultimatewuestionoflifetheuniverseandeverything:
+  aliases:
+    - whatistheultimateanswer
+    - whatistheultimateanswertolifetheuniverseandeverything
+  response: "Forty-two"
+valarmorghulis:
+  response: "Valar dohaeris"
+dudewhatdoesminesay:
+  response: "Sweet what does mine say?"
+makemeasandwich:
+  response: "No, you make it"    
