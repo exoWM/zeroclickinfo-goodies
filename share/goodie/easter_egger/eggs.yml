@@ -7,14 +7,18 @@
 #      - alternate_key0
 #       - alternate_key1
 #   output: 'Output'
-whatistheanswertotheultimatewuestionoflifetheuniverseandeverything:
+---
+whatistheanswertotheultimatequestionoflifetheuniverseandeverything:
   aliases:
     - whatistheultimateanswer
     - whatistheultimateanswertolifetheuniverseandeverything
-  response: "Forty-two"
+  response: "Forty-two."
 valarmorghulis:
-  response: "Valar dohaeris"
+  response: "Valar dohaeris."
 dudewhatdoesminesay:
   response: "Sweet what does mine say?"
 makemeasandwich:
-  response: "No, you make it"    
+  response: "No, you make it."
+whydidthechickencrosstheroad:
+  response: "To get to the other side."
+
